@@ -26,3 +26,12 @@ Add a new job
  * create the job in jenkins
  * Using the command `docker exec -it autojenkins_udd_1 bash` you can connect in the container and get the config file of the jobs created here `/var/jenkins_home/jobs/{{ name of the job }}/config.xml`
  * put the config file in the repository in `jobs/{{ name of the job }}/config.xml`
+ * rebuild the image : `docker-compose build`
+
+Add a new plugin
+----------------
+ * Find the plugin id on [jenkins plugin website](https://wiki.jenkins-ci.org/display/JENKINS/Plugins)
+ * add the plugin in `plugins.txt` using the following syntax : `{{ id of the plugin }}:{{ version of the plugin }}`
+ * rebuild the image : `docker-compose build`
+
+**BEWARE ** : the system doesn't handle plugins dependencies. You should install the dependencies yourself 
