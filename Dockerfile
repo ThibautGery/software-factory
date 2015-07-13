@@ -33,4 +33,6 @@ RUN gpasswd -a jenkins docker
 ADD ./wrapdocker /usr/local/bin/wrapdocker
 RUN chmod +x /usr/local/bin/wrapdocker
 
+ENV PORT 4243
+
 ENTRYPOINT ["/usr/local/bin/wrapdocker", "/usr/local/bin/jenkins.sh"]
