@@ -12,6 +12,11 @@ A few usefull commands :
  * build the new configuration : `docker-compose build`
  * remove the container : `docker-compose rm -f`  
 
+Setup
+-----
+
+You will need to add the jenkins slave credentials in the [admin](http://localhost:8080/configure): login: `jenkins` and password `jenkins`
+
 Requirements
 ------------
 
@@ -34,4 +39,4 @@ Add a new plugin
  * add the plugin in `plugins.txt` using the following syntax : `{{ id of the plugin }}:{{ version of the plugin }}`
  * rebuild the image : `docker-compose build`
 
-**BEWARE ** : the system doesn't handle plugins dependencies. You should install the dependencies yourself 
+**BEWARE ** : the system doesn't handle plugins dependencies. You should install the dependencies yourself
