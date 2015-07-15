@@ -39,4 +39,4 @@ Add a new plugin
  * add the plugin in `plugins.txt` using the following syntax : `{{ id of the plugin }}:{{ version of the plugin }}`
  * rebuild the image : `docker-compose build`
 
-**BEWARE ** : the system doesn't handle plugins dependencies. You should install the dependencies yourself
+*BEWARE* : the system doesn't handle plugins dependencies. You should install the dependencies yourself
