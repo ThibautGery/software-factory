@@ -24,7 +24,7 @@
           <launcher class="com.nirima.jenkins.plugins.docker.launcher.DockerComputerSSHLauncher">
             <sshConnector plugin="ssh-slaves@1.9">
               <port>22</port>
-              <credentialsId>02e77589-a12b-4141-9829-9632b71b09b7</credentialsId>
+              <credentialsId>ef0147f9-cc2b-4d4d-b055-aefe927a3f9f</credentialsId>
               <jvmOptions></jvmOptions>
               <javaPath></javaPath>
               <maxNumRetries>0</maxNumRetries>
@@ -41,7 +41,7 @@
           </retentionStrategy>
           <numExecutors>1</numExecutors>
           <dockerTemplateBase>
-            <image>evarga/jenkins-slave</image>
+            <image>build-base</image>
             <dockerCommand></dockerCommand>
             <lxcConfString></lxcConfString>
             <hostname></hostname>

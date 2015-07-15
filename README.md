@@ -12,10 +12,10 @@ A few usefull commands :
  * build the new configuration : `docker-compose build`
  * remove the container : `docker-compose rm -f`  
 
-Setup
------
+Pre-requisite
+-------------
 
-You will need to add the jenkins slave credentials in the [admin](http://localhost:8080/configure): login: `jenkins` and password `jenkins`
+You need to run the job `build-job-base` in order to create the `build-base` image locally.
 
 Requirements
 ------------
