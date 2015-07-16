@@ -4,3 +4,10 @@ udd:
    - "8080:8080"
    - "50000:50000"
   privileged: true
+  links:
+   - registry:registry
+
+registry:
+  image: registry:2
+  ports:
+   - "5000:5000"

@@ -22,7 +22,8 @@ ADD ./wrapdocker /usr/local/bin/wrapdocker
 RUN chmod +x /usr/local/bin/wrapdocker
 
 #Activate http API for jenkins plugin
-ENV DOCKER_DAEMON_ARGS -d -H 0.0.0.0:4243 -H unix:///var/run/docker.sock
+ENV DOCKER_DAEMON_ARGS -d -H 0.0.0.0:4243 -H unix:///var/run/docker.sock --insecure-registry registry:5000
+
 
 
 USER jenkins

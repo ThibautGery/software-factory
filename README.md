@@ -40,3 +40,9 @@ Add a new plugin
  * rebuild the image : `docker-compose build`
 
 *BEWARE* : the system doesn't handle plugins dependencies. You should install the dependencies yourself
+
+Todos
+-----
+
+ * run jenkins master as jenkins (not as root)
+ * run registry with a certificate and https 

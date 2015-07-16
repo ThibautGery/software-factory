@@ -16,7 +16,9 @@
   <builders>
     <hudson.tasks.Shell>
       <command>cp ~/.ssh/id_rsa.pub ./id_rsa.pub
-docker build -t build-base .. </command>
+docker build -t build-base ..
+docker tag build-base registry:5000/build-base
+docker push registry:5000/build-base</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
