@@ -16,7 +16,7 @@
   <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
   <clouds>
     <com.nirima.jenkins.plugins.docker.DockerCloud plugin="docker-plugin@0.10.0">
-      <name>local</name>
+      <name>docker Cloud</name>
       <templates>
         <com.nirima.jenkins.plugins.docker.DockerTemplate>
           <configVersion>1</configVersion>

@@ -1,9 +1,17 @@
 udd:
-  build: .
+  build: jenkins
+  privileged: true
   ports:
    - "8080:8080"
-   - "50000:50000"
+  links:
+   - registry:registry
+   - docker:docker
+
+docker:
+  build: docker
   privileged: true
+  ports:
+   - "14243:4243"
   links:
    - registry:registry
 

@@ -1,4 +1,5 @@
 greenballs :1.14
 disk-usage:0.25
 durable-task:1.5
+token-macro:1.10
 docker-plugin:0.10.0
