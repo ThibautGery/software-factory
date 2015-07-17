@@ -16,11 +16,24 @@
   <builders>
     <hudson.tasks.Shell>
       <command>cp ~/.ssh/id_rsa.pub ./id_rsa.pub
+cp ~/.ssh/id_rsa ./id_rsa
 docker build -t build-base ..
-docker tag build-base registry:5000/build-base
-docker push registry:5000/build-base</command>
+rm ./id_rsa
+docker tag -f build-base registry:5000/build-base
+docker push registry:5000/build-base
+</command>
     </hudson.tasks.Shell>
   </builders>
-  <publishers/>
+  <publishers>
+    <hudson.tasks.BuildTrigger>
+      <childProjects>build-job-mvn</childProjects>
+      <threshold>
+        <name>SUCCESS</name>
+        <ordinal>0</ordinal>
+        <color>BLUE</color>
+        <completeBuild>true</completeBuild>
+      </threshold>
+    </hudson.tasks.BuildTrigger>
+  </publishers>
   <buildWrappers/>
 </project>

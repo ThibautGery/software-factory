@@ -55,6 +55,43 @@
             <tty>false</tty>
           </dockerTemplateBase>
         </com.nirima.jenkins.plugins.docker.DockerTemplate>
+        <com.nirima.jenkins.plugins.docker.DockerTemplate>
+          <configVersion>1</configVersion>
+          <labelString>mvn</labelString>
+          <launcher class="com.nirima.jenkins.plugins.docker.launcher.DockerComputerSSHLauncher">
+            <sshConnector plugin="ssh-slaves@1.9">
+              <port>22</port>
+              <credentialsId>ef0147f9-cc2b-4d4d-b055-aefe927a3f9f</credentialsId>
+              <jvmOptions></jvmOptions>
+              <javaPath></javaPath>
+              <maxNumRetries>0</maxNumRetries>
+              <retryWaitTime>0</retryWaitTime>
+            </sshConnector>
+          </launcher>
+          <remoteFsMapping></remoteFsMapping>
+          <remoteFs>/home/jenkins</remoteFs>
+          <instanceCap>2147483647</instanceCap>
+          <mode>NORMAL</mode>
+          <retentionStrategy class="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">
+            <idleMinutes>0</idleMinutes>
+            <idleMinutes defined-in="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">0</idleMinutes>
+          </retentionStrategy>
+          <numExecutors>1</numExecutors>
+          <dockerTemplateBase>
+            <image>build-mvn</image>
+            <dockerCommand></dockerCommand>
+            <lxcConfString></lxcConfString>
+            <hostname></hostname>
+            <dnsHosts/>
+            <volumes/>
+            <volumesFrom2/>
+            <environment/>
+            <bindPorts></bindPorts>
+            <bindAllPorts>false</bindAllPorts>
+            <privileged>false</privileged>
+            <tty>false</tty>
+          </dockerTemplateBase>
+        </com.nirima.jenkins.plugins.docker.DockerTemplate>
       </templates>
       <serverUrl>http://127.0.0.1:4243</serverUrl>
       <containerCap>2147483647</containerCap>
