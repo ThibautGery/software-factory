@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>Spring boot sample publish</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.25"/>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.3.5">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/ThibautGery/spring-boot-sample.git</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>docker build -t run-spring-boot-sample .
+docker tag -f run-spring-boot-sample registry:5000/run-spring-boot-sample
+docker push registry:5000/run-spring-boot-sample
+</command>
+    </hudson.tasks.Shell>
+    <com.nirima.jenkins.plugins.docker.builder.DockerBuilderNewTemplate plugin="docker-plugin@0.10.0">
+      <dockerTemplate>
+        <configVersion>1</configVersion>
+        <labelString>run-spring-boot-sample</labelString>
+        <launcher class="com.nirima.jenkins.plugins.docker.launcher.DockerComputerSSHLauncher">
+          <sshConnector plugin="ssh-slaves@1.9">
+            <port>22</port>
+            <credentialsId>ef0147f9-cc2b-4d4d-b055-aefe927a3f9f</credentialsId>
+            <jvmOptions></jvmOptions>
+            <javaPath></javaPath>
+            <maxNumRetries>0</maxNumRetries>
+            <retryWaitTime>0</retryWaitTime>
+          </sshConnector>
+        </launcher>
+        <remoteFsMapping></remoteFsMapping>
+        <remoteFs>/home/jenkins</remoteFs>
+        <instanceCap>2147483647</instanceCap>
+        <mode>NORMAL</mode>
+        <retentionStrategy class="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">
+          <idleMinutes>0</idleMinutes>
+          <idleMinutes defined-in="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">0</idleMinutes>
+        </retentionStrategy>
+        <numExecutors>1</numExecutors>
+        <dockerTemplateBase>
+          <image>registry:5000/run-spring-boot-sample</image>
+          <dockerCommand></dockerCommand>
+          <lxcConfString></lxcConfString>
+          <hostname></hostname>
+          <dnsHosts/>
+          <volumes/>
+          <volumesFrom2/>
+          <environment/>
+          <bindPorts></bindPorts>
+          <bindAllPorts>false</bindAllPorts>
+          <privileged>false</privileged>
+          <tty>false</tty>
+        </dockerTemplateBase>
+      </dockerTemplate>
+      <version>1</version>
+    </com.nirima.jenkins.plugins.docker.builder.DockerBuilderNewTemplate>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

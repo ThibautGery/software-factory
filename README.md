@@ -60,3 +60,4 @@ Todos
 
  * run jenkins master as jenkins (not as root)
  * run registry with a certificate and https
+ * add a [notification system](https://github.com/docker/distribution/blob/master/docs/notifications.md) to update current env from registry
