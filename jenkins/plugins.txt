@@ -3,3 +3,6 @@ disk-usage:0.25
 durable-task:1.5
 token-macro:1.10
 docker-plugin:0.10.0
+parameterized-trigger:2.27
+git-client:1.17.1
+git:2.3.5
