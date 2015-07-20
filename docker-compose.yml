@@ -19,3 +19,7 @@ registry:
   image: registry:2
   ports:
    - "5000:5000"
+  environment:
+    REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /var/lib/registry
+  volumes:
+    - ~/.registry-data:/var/lib/registry
