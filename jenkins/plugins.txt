@@ -1,4 +1,5 @@
 greenballs :1.14
+credentials:1.22
 disk-usage:0.25
 durable-task:1.5
 token-macro:1.10
@@ -7,3 +8,6 @@ parameterized-trigger:2.27
 scm-api:0.2
 git-client:1.17.1
 git:2.3.5
+authentication-tokens:1.1
+docker-commons:1.1
+docker-build-step:1.27
