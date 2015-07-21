@@ -76,6 +76,16 @@ docker push registry:5000/run-spring-boot-sample
       <version>1</version>
     </com.nirima.jenkins.plugins.docker.builder.DockerBuilderNewTemplate>
   </builders>
-  <publishers/>
+  <publishers>
+    <hudson.tasks.BuildTrigger>
+      <childProjects>DEPLOY-spring-boot-sample</childProjects>
+      <threshold>
+        <name>SUCCESS</name>
+        <ordinal>0</ordinal>
+        <color>BLUE</color>
+        <completeBuild>true</completeBuild>
+      </threshold>
+    </hudson.tasks.BuildTrigger>
+  </publishers>
   <buildWrappers/>
 </project>
