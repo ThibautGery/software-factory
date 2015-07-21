@@ -11,7 +11,7 @@ RUN apt-get update -qq && apt-get install -qqy \
 # Install Jenkins runtimes
 RUN apt-get update -qq && apt-get install -qqy \
     git
-    
+
 # Install Docker from Docker Inc. repositories.
 RUN echo deb https://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list \
   && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9 \
@@ -42,6 +42,9 @@ COPY jobs /var/jenkins_home/jobs/
 #Add Configs file
 COPY config/jenkins.xml /var/jenkins_home/config.xml
 COPY config/credentials.xml /var/jenkins_home/credentials.xml
+COPY config/org.jenkinsci.plugins.docker.commons.tools.DockerTool.xml /var/jenkins_home/org.jenkinsci.plugins.docker.commons.tools.DockerTool.xml
+COPY config/org.jenkinsci.plugins.dockerbuildstep.DockerBuilder.xml /var/jenkins_home/org.jenkinsci.plugins.dockerbuildstep.DockerBuilder.xml
+
 
 RUN ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
 
